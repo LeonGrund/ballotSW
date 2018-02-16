@@ -15,7 +15,7 @@ npm help json
 npm install <pkg> --save
 
 npm install --save @google-cloud/storage
-npm install --save-dev mocha chai
+npm install --save mocha chai
 ```
 
 **GCP**
