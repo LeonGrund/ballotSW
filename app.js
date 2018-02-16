@@ -8,7 +8,7 @@ const querystring = require('querystring');
 const request = require('request-promise');
 
 const PORT = parseInt(process.env.PORT) || 8080;
-const TEXT = process.env.TEXT || 'Hello World!'
+const TEXT = process.env.TEXT || 'Hello World!';
 //process.env.TES = require('./test.json');
 //console.log('THIS IS A TEST: ', process.env.TES);
 
