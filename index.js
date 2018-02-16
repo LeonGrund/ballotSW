@@ -7,19 +7,38 @@ const nonce = require('nonce')();
 const querystring = require('querystring');
 const request = require('request-promise');
 
-
-
+const PORT = parseInt(process.env.PORT) || 8080;
+const TEXT = process.env.TEXT || 'Hello World!'
 //process.env.TES = require('./test.json');
 //console.log('THIS IS A TEST: ', process.env.TES);
 
 
+/**
+ * TODO(developer): Tests Cases
+ */
+function checkPort() {
+  return PORT;
+}
+
+function checkText() {
+    return TEXT;
+}
+
+module.exports = {
+  checkPort,
+  checkText
+};
+
+
+
+
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send(TEXT);
 });
 
-app.listen(8080, () => {
-  console.log('Example app listening on port 8080!');
+app.listen(PORT, () => {
+  console.log('Example app listening on port: ', PORT);
 });
 
 // Basic 404 handler
