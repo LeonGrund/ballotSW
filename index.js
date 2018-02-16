@@ -7,10 +7,12 @@ const nonce = require('nonce')();
 const querystring = require('querystring');
 const request = require('request-promise');
 
-//const apiKey = process.env.SHOPIFY_API_KEY;
-//const apiSecret = process.env.SHOPIFY_API_SECRET;
-//const scopes = 'read_products';
-//const forwardingAddress = "https://24c7d3bc.ngrok.io"; // Replace this with your HTTPS Forwarding address
+
+
+//process.env.TES = require('./test.json');
+//console.log('THIS IS A TEST: ', process.env.TES);
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -18,4 +20,22 @@ app.get('/', (req, res) => {
 
 app.listen(8080, () => {
   console.log('Example app listening on port 8080!');
+});
+
+// Basic 404 handler
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
+
+// Basic error handler
+app.use((err, req, res, next) => {
+  /* jshint unused:false */
+  console.error(err);
+  // If our routes specified a specific response, then send that. Otherwise,
+  // send a generic message so as not to leak anything.
+  res.status(500).send(err.response || 'Something broke!');
+});
+
+process.on('uncaughtException', function(err) {
+  console.log('Caught exception: ' + err);
 });
