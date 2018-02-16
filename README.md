@@ -1,3 +1,6 @@
+**app online**
+## https://team10-193903.appspot.com/
+
 
 **run tests**
 ```
@@ -21,5 +24,6 @@ npm install --save mocha chai
 **GCP**
 ```
 set GOOGLE_APPLICATION_CREDENTIALS=[PATH]
-
+gcloud app deploy
+gcloud app browse
 ```
