@@ -1,7 +1,7 @@
 # Clone repository
 # Open team10.sln file with Visual Studio 2017
 ## On GitHub:
-### Feel free to crate Issues
+### Feel free to create Issues
 ### Label them with 'to do', 'doing', or 'done'
 ### Assign them to someone
 
