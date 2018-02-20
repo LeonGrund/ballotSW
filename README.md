@@ -1,6 +1,14 @@
 # Clone repository
 # Open team10.sln file with Visual Studio 2017
 
+
+
+
+
+
+
+
+## GCP Commands
 **run tests**
 ```
 npm test
