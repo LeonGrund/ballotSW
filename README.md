@@ -1,6 +1,5 @@
-**app online**
-## https://team10-193903.appspot.com/
-
+# Clone repository
+# Open team10.sln file with Visual Studio 2017
 
 **run tests**
 ```
