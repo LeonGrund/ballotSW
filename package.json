@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "team10",
   "scripts": {
-    "start": "node index.js",
-    "test": "mocha"
+    "deploy": "glcoud app delplot",
+    "start": "node app.js",
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",

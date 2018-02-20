@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var test = require('../index.js');  // import Test Cases
+var test = require('../app.js');  // import Test Cases
 
 describe('Port Check:', function () {
   it('valid port is 8080', function () {
