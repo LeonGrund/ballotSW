@@ -15,7 +15,7 @@
         }
         .auto-style3 {
             width: 147px;
-            height: 92px;
+            height: 38px;
         }
         .auto-style4 {
             width: 134px;
@@ -34,16 +34,18 @@
         }
         .auto-style8 {
             width: 134px;
-            height: 92px;
+            height: 38px;
         }
         .auto-style9 {
-            height: 92px;
+            height: 38px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Larger" Text="Voter Registration"></asp:Label>
+            <br />
             <br />
             <br />
         </div>
@@ -51,62 +53,73 @@
                 <tr>
                     <td class="auto-style2">First Name:</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="firstName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="firstNameTextBox" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstName" ErrorMessage="First Name is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameTextBox" ErrorMessage="First Name is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Last Name:</td>
+                    <td class="auto-style2">Last Name:<br />
+                        <br />
+                        SSN:</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="lastName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="lastNameTextBox" runat="server"></asp:TextBox>
+                        <br />
+                        <br />
+                        <asp:TextBox ID="ssnTextBox" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lastName" ErrorMessage="Last Name is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lastNameTextBox" ErrorMessage="Last Name is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ssnTextBox" ErrorMessage="SSN is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="ssnTextBox" ErrorMessage="Enter a valid SSN." ForeColor="#CC0000" ValidationExpression="\d{3}-\d{2}-\d{4}"></asp:RegularExpressionValidator>
+                        <br />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style5">E-mail:</td>
                     <td class="auto-style6">
-                        <asp:TextBox ID="email" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style7">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="password" ErrorMessage="E-mail is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="emailTextBox" ErrorMessage="E-mail is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="email" ErrorMessage="Enter a valid E-mail." ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emailTextBox" ErrorMessage="Enter a valid E-mail." ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Password:</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="passwordTextBox" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="password" ErrorMessage="Password is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="passwordTextBox" ErrorMessage="Password is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Confirm Password:</td>
                     <td class="auto-style4">
-                        <asp:TextBox ID="confirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="confirmPasswordTextBox" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="confirmPassword" ErrorMessage="Confirm Password is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="confirmPasswordTextBox" ErrorMessage="Confirm Password is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="password" ControlToValidate="confirmPassword" ErrorMessage="Password has to be the same." ForeColor="#CC0000"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="passwordTextBox" ControlToValidate="confirmPasswordTextBox" ErrorMessage="Password has to be the same." ForeColor="#CC0000"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Coutry:</td>
-                    <td class="auto-style4">
+                    <td class="auto-style5">Coutry:</td>
+                    <td class="auto-style6">
                         <asp:DropDownList ID="countryList" runat="server">
                             <asp:ListItem>Select Country</asp:ListItem>
                             <asp:ListItem>USA</asp:ListItem>
                             <asp:ListItem>Germany</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td>
+                    <td class="auto-style7">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="countryList" ErrorMessage="Select a country is required." ForeColor="#CC0000" InitialValue="Select Country"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
