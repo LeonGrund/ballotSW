@@ -16,6 +16,7 @@ public partial class registration : System.Web.UI.Page
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ballotConnectionString"].ConnectionString);
             conn.Open();
+            // check for unique user SSN in 'voter' table
             string checkSSN = "select count(*) from voter where ssn='" + ssnTextBox + "'";
             SqlCommand com = new SqlCommand(checkSSN, conn);
             int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
@@ -30,12 +31,15 @@ public partial class registration : System.Web.UI.Page
     protected void submit_Click(object sender, EventArgs e)
     {
         try
-        {
+        {   
+            // add new user to 'voter' table
+            Guid newGUID = Guid.NewGuid();
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ballotConnectionString"].ConnectionString);
             conn.Open();
-            string insertQuery = "insert into voter (firstName,lastName,ssn,email,password,country) values (@fName, @lName, @ssn, @email, @password, @country)";
+            string insertQuery = "insert into voter (Id, firstName,lastName,ssn,email,password,country) values (@id, @fName, @lName, @ssn, @email, @password, @country)";
 
             SqlCommand com = new SqlCommand(insertQuery, conn);
+            com.Parameters.AddWithValue("@id", newGUID.ToString());
             com.Parameters.AddWithValue("@fName", firstNameTextBox.Text);
             com.Parameters.AddWithValue("@lName", lastNameTextBox.Text);
             com.Parameters.AddWithValue("@ssn", ssnTextBox.Text);

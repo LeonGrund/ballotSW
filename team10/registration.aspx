@@ -39,12 +39,15 @@
         .auto-style9 {
             height: 38px;
         }
+        .auto-style10 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Larger" Text="Voter Registration"></asp:Label>
+        <div class="auto-style10">
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Voter Registration"></asp:Label>
             <br />
             <br />
             <br />
