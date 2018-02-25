@@ -38,6 +38,7 @@
         }
         .auto-style9 {
             height: 38px;
+            text-align: right;
         }
         .auto-style10 {
             text-align: center;
@@ -132,6 +133,7 @@
                         <asp:Button ID="submit" runat="server" OnClick="submit_Click" Text="Submit" />
                         <input id="Reset1" type="reset" value="Reset" /></td>
                     <td class="auto-style9">
+                        <asp:HyperLink ID="loginHyperLink" runat="server" NavigateUrl="~/login.aspx">Login Page</asp:HyperLink>
                         </td>
                 </tr>
             </table>

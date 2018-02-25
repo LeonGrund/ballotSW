@@ -37,7 +37,17 @@ public partial class login : System.Web.UI.Page
             {
                 Session["New"] = emailLoginTextBox.Text;
                 Response.Write("Login is successful");
-                Response.Redirect("manager.aspx");
+
+                // admin login redirect to database manager page
+                if ("admin" == emailLoginTextBox.Text)
+                {
+                    Response.Redirect("manager.aspx");
+                }
+                else // redirect to voter page
+                {
+                    Response.Redirect("voter.aspx");
+                }
+                
             }
             else
             {

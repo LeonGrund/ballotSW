@@ -18,12 +18,19 @@
         .auto-style4 {
             width: 132px;
         }
+        .auto-style5 {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="auto-style1">
+            <strong>
             <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" Text="Login"></asp:Label>
+            <br />
+            <br />
+            </strong>
         </div>
         <table class="auto-style2">
             <tr>
@@ -54,7 +61,9 @@
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style4">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style5">
+                    <asp:HyperLink ID="registrationHyperLink" runat="server" NavigateUrl="~/registration.aspx">Register New Voter!</asp:HyperLink>
+                </td>
             </tr>
         </table>
     </form>
