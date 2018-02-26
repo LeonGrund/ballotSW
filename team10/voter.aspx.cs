@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class voter : System.Web.UI.Page
 {
@@ -11,7 +13,17 @@ public partial class voter : System.Web.UI.Page
     {
         if (Session["New"] != null)
         {
-            voterWelcomeLabel.Text += Session["New"].ToString();
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ballotConnectionString"].ConnectionString);
+            conn.Open();
+
+            // find first name 
+            string queryFirstName = "select firstName from voter where email='" + Session["New"].ToString() + "'";
+            SqlCommand firstNameComm = new SqlCommand(queryFirstName, conn);
+            string userFirstName = firstNameComm.ExecuteScalar().ToString().Replace(" ", "");
+                
+            conn.Close();
+
+            voterWelcomeLabel.Text += userFirstName;
         }
         else
         {
