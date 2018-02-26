@@ -30,7 +30,6 @@ public partial class registration : System.Web.UI.Page
 
     protected void Submit_Click(object sender, EventArgs e)
     {
-        return;
         try
         {   
             // add new user to 'voter' table
