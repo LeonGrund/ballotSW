@@ -28,8 +28,9 @@ public partial class registration : System.Web.UI.Page
         }
     }
 
-    protected void submit_Click(object sender, EventArgs e)
+    protected void Submit_Click(object sender, EventArgs e)
     {
+        return;
         try
         {   
             // add new user to 'voter' table
@@ -57,5 +58,10 @@ public partial class registration : System.Web.UI.Page
         {
             Response.Write("Error: " + err.ToString());
         }
+    }
+
+    protected void RedirectToLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("login.aspx");
     }
 }

@@ -1,0 +1,48 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background: url(images/flagAtSunset.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+
+.loginBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 0px;
+}
+
+.SubmitButton,
+.textEntry {
+    height: 50px;
+    width: 300px;
+    color: white;
+    font-size: 16pt;
+    font-weight: bold;
+    padding: 15px;
+    
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+
+    box-sizing: border-box;
+    background: black;
+}
+
+.SubmitButton:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+.ErrorMessage {
+    height: 20px;
+    width: 300px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+}
+

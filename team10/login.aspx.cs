@@ -14,7 +14,7 @@ public partial class login : System.Web.UI.Page
 
     }
 
-    protected void loginButton_Click(object sender, EventArgs e)
+    protected void LoginButton_Click(object sender, EventArgs e)
     {
         // check for existing email to verify user
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ballotConnectionString"].ConnectionString);
@@ -41,15 +41,19 @@ public partial class login : System.Web.UI.Page
             }
             else
             {
-                Response.Write("Email or password is not correct"); // login password not correct
+                Response.Write("Incorrect email or password"); // login password not correct
             }
             
         }
         // email is not in database
         else
         {
-            Response.Write("Email or password is not correct"); // login email not correct
-        }
-        
+            Response.Write("No user found"); // login email not correct
+        } 
+    }
+
+    protected void RedirectToCreateAccount_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("registration.aspx");
     }
 }

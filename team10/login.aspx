@@ -4,57 +4,42 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-        }
-        .auto-style2 {
-            width: 100%;
-        }
-        .auto-style3 {
-            width: 99px;
-        }
-        .auto-style4 {
-            width: 132px;
-        }
-    </style>
+    <title>User Login</title>
+      <link rel="stylesheet" href="login.css"/>
 </head>
+
 <body>
     <form id="form1" runat="server">
-        <div class="auto-style1">
-            <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" Text="Login"></asp:Label>
-        </div>
-        <table class="auto-style2">
+        <table class="loginBox">
             <tr>
-                <td class="auto-style3">E-mail:</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="emailLoginTextBox" runat="server"></asp:TextBox>
-                </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="emailLoginTextBox" ErrorMessage="Em" ForeColor="#CC0000">E-mail is required.</asp:RequiredFieldValidator>
+                    <asp:TextBox class="textEntry" ID="emailLoginTextBox" runat="server" placeholder="Email"></asp:TextBox>    
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3">Password:</td>
-                <td class="auto-style4">
-                    <asp:TextBox ID="passwordLoginTextBox" runat="server" TextMode="Password"></asp:TextBox>
+                <td>    
+                    <asp:RequiredFieldValidator class="ErrorMessage" ID="RequiredFieldValidator1" runat="server" ControlToValidate="emailLoginTextBox" ErrorMessage="Em" ForeColor="#FFFFFF">Email is required</asp:RequiredFieldValidator>
                 </td>
+            </tr>
+            <tr>
                 <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="passwordLoginTextBox" ErrorMessage="Password is required." ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                    <asp:TextBox class="textEntry" ID="passwordLoginTextBox" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style4">
-                    <asp:Button ID="loginButton" runat="server" OnClick="loginButton_Click" Text="Login" />
+                <td>
+                    <asp:RequiredFieldValidator class="ErrorMessage" ID="RequiredFieldValidator2" runat="server" ControlToValidate="passwordLoginTextBox" ForeColor="#FFFFFF">Password is required</asp:RequiredFieldValidator>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Button class="SubmitButton" ID="loginButton" runat="server" OnClick="LoginButton_Click" Text="Login" BorderStyle="None"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button class="SubmitButton" ID="GoToCreateAccount" runat="server" OnClick="RedirectToCreateAccount_Click" Text="Don't have an account?" CausesValidation="false" BorderStyle="None"/>
+                </td>
             </tr>
         </table>
     </form>
