@@ -30,26 +30,34 @@ public partial class login : System.Web.UI.Page
             conn.Open();
             string checkPassword = "select password from voter where email='" + emailLoginTextBox.Text + "'";
             SqlCommand passComm = new SqlCommand(checkPassword, conn);
-            string passwordDb = passComm.ExecuteScalar().ToString().Replace(" ",""); // password in database associated with login email
+
+            string passwordDb = passComm.ExecuteScalar().ToString().Replace(" ", ""); // password in database associated with login email
             conn.Close();
 
             if (passwordDb == passwordLoginTextBox.Text)
             {
                 Session["New"] = emailLoginTextBox.Text;
                 Response.Write("Login is successful");
-                Response.Redirect("manager.aspx");
+                // admin login redirect to database manager page
+                if ("admin" == emailLoginTextBox.Text)
+                {
+                    Response.Redirect("manager.aspx");
+                }
+                else // redirect to voter page
+                {
+                    Response.Redirect("voter.aspx");
+                }
             }
             else
             {
-                Response.Write("Incorrect email or password"); // login password not correct
+                Response.Write("Email or password is not correct"); // login password not correct
             }
-            
         }
         // email is not in database
         else
         {
-            Response.Write("No user found"); // login email not correct
-        } 
+            Response.Write("Email or password is not correct"); // login email not correct
+        }
     }
 
     protected void RedirectToCreateAccount_Click(object sender, EventArgs e)
